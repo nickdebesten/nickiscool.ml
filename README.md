@@ -1,29 +1,30 @@
-## Welcome to GitHub Pages
+## Welcome to nickiscool.ml here you can learn how to make discord bots
 
 You can use the [editor on GitHub](https://github.com/nickdebesten/nickiscool.ml/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
 
-### Markdown
+### Lets start
+First of all make sure you downloaded [node.js](https://nodejs.org/en/download/).
+Then make a directory. This is where you can store all the files of the bot.
+Then open CMD and run `npm init` it will make a package.json file. You need this in order to run the discord bot later.
+then make a file called `index.js` leave it as it is now. Go to [discord developer page] (https://discordapp.com/developers/applications) and make a application and a bot user. Copy the token you will need it in order to run the bot.
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
 
 ```markdown
-Syntax highlighted code block
+const Discord = require('discord.js');
+const client = new Discord.Client();
 
-# Header 1
-## Header 2
-### Header 3
+client.on('ready', () => {
+  console.log(`Logged in as ${client.user.tag}!`);
+});
 
-- Bulleted
-- List
+client.on('message', message => {
+  if (message.content === 'ping') {
+    message.reply('pong');
+  }
+});
 
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
+client.login('token');// replace token with the token from the dev page
 ```
 
 For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
